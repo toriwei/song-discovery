@@ -1,18 +1,35 @@
-import { useState } from "react";
 import { auth } from "../firebaseConfig";
+import { useState, useEffect } from "react";
 
 export default function ArticleEntry({ addArticle }) {
-  const [song, setSong] = useState("");
+  const [artist, setArtist] = useState("");
   const [movie, setMovie] = useState("");
   const [error, setError] = useState(null);
+  const [data, setData] = useState("");
+
+  function getData() {
+    console.log(artist);
+    console.log(movie);
+    const artistName = document.querySelector("#artist_name").value;
+    const movieName = document.querySelector("#movie_name").value;
+    setArtist(artistName.toLowerCase());
+    setMovie(movieName.toLowerCase());
+    const url = `https://tastedive.com/api/similar?q=${artist}%2C+${movie}&k=428056-SongDisc-8H4T2V3D`;
+    fetch(url)
+      .then((r) => r.json())
+      .then((r) => setData(r))
+      .catch((e) => setData(null));
+    console.log(data);
+  }
+  /**, [addArticle]); */
 
   function submit(e) {
     setError(null);
     e.preventDefault();
-    if (!song.trim() || !movie.trim()) {
+    if (!artist.trim() || !movie.trim()) {
       setError("Both input boxes must be filled");
     } else {
-      addArticle({ song, movie }).catch(() => {
+      addArticle({ artist, movie }).catch(() => {
         setError("playlist creation failed");
       });
     }
@@ -22,11 +39,21 @@ export default function ArticleEntry({ addArticle }) {
     <div>
       <form onSubmit={submit}>
         {error && <p className="error">{error}</p>}
-        Song
-        <input value={song} onChange={(e) => setSong(e.target.value)} />
+        Artist
+        <input
+          id="artist_name"
+          value={artist}
+          onChange={(e) => setArtist(e.target.value)}
+        />
+        {/* part we deleted: onChange={(e) => setSong(e.target.value)} */}
         Movie
-        <input value={movie} onChange={(e) => setMovie(e.target.value)}></input>
-        <button className="buttons" type="submit">
+        <input
+          id="movie_name"
+          value={movie}
+          onChange={(e) => setMovie(e.target.value)}
+        />
+        {/**onChange={(e) => setMovie(e.target.value)} */}
+        <button className="buttons" type="submit" onClick={getData}>
           Create Playlist
         </button>
       </form>

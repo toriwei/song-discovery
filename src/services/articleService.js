@@ -16,8 +16,8 @@ import {
 } from "firebase/firestore";
 import Article from "../components/Article";
 
-export async function createArticle({ song, movie }) {
-  const data = { song, movie, date: Timestamp.now() };
+export async function createArticle({ artist, movie }) {
+  const data = { artist, movie, date: Timestamp.now() };
   const docRef = await addDoc(collection(db, "articles"), data);
   return { id: docRef.id, ...data };
 }

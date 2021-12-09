@@ -10,16 +10,23 @@ export default function ArticleEntry({ addArticle }) {
   function getData() {
     console.log(artist);
     console.log(movie);
-    const artistName = document.querySelector("#artist_name").value;
-    const movieName = document.querySelector("#movie_name").value;
+    const artistName = encodeURIComponent(
+      document.querySelector("#artist_name").value
+    );
+    const movieName = encodeURIComponent(
+      document.querySelector("#movie_name").value
+    );
     setArtist(artistName.toLowerCase());
     setMovie(movieName.toLowerCase());
-    const url = `https://tastedive.com/api/similar?q=${artist}%2C+${movie}&k=428056-SongDisc-8H4T2V3D`;
+    const q = `${artistName}, ${movieName}`;
+    const url = `https://ProxyForElenaAndTori.rtoal.repl.co/similar?q=${q}`;
     fetch(url)
       .then((r) => r.json())
-      .then((r) => setData(r))
+      .then((r) => {
+        setData(r);
+        console.log(data);
+      })
       .catch((e) => setData(null));
-    console.log(data);
   }
   /**, [addArticle]); */
 

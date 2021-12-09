@@ -1,5 +1,6 @@
 import { auth } from "../firebaseConfig";
 import { useState, useEffect } from "react";
+import { render } from "@testing-library/react";
 
 export default function ArticleEntry({ addArticle }) {
   const [artist, setArtist] = useState("");
@@ -24,7 +25,6 @@ export default function ArticleEntry({ addArticle }) {
       .then((r) => r.json())
       .then((r) => {
         setData(r);
-        console.log(data);
       })
       .catch((e) => setData(null));
   }
@@ -64,6 +64,7 @@ export default function ArticleEntry({ addArticle }) {
           Create Playlist
         </button>
       </form>
+      {data ? <p>d</p> : ""}
     </div>
   );
 }

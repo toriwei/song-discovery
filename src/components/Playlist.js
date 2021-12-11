@@ -1,8 +1,8 @@
 export default function Playlist({ data }) {
-    console.log(data.Similar.Results.map((result) => result.Name))
-  return (
+    // console.log(data);
+    return (
     <section>
-      <div>{data.Similar.Results.map((result) => <p>{result.Name}</p>)}</div>
+      <div>{data.map((result) => <p>{result.Name}</p>)}</div>
     </section>
   );
 }

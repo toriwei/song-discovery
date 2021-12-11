@@ -1,13 +1,13 @@
 import { auth } from "../firebaseConfig";
 import { useState, useEffect } from "react";
 import { render } from "@testing-library/react";
-import Playlist from "./Playlist";
+import Playlist from "./Playlist"; 
 
 export default function ArticleEntry({ addArticle }) {
   const [artist, setArtist] = useState("");
   const [movie, setMovie] = useState("");
   const [error, setError] = useState(null);
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
 
   function getData() {
     console.log(artist);
@@ -25,7 +25,7 @@ export default function ArticleEntry({ addArticle }) {
     fetch(url)
       .then((r) => r.json())
       .then((r) => {
-        setData(r);
+        setData(r.Similar.Results);
       })
       .catch((e) => setData(null));
   }
@@ -37,7 +37,7 @@ export default function ArticleEntry({ addArticle }) {
     if (!artist.trim() || !movie.trim()) {
       setError("Both input boxes must be filled");
     } else {
-      addArticle({ artist, movie }).catch(() => {
+        addArticle({ artist, movie, data }).catch(() => {
         setError("playlist creation failed");
       });
     }
@@ -65,7 +65,7 @@ export default function ArticleEntry({ addArticle }) {
           Create Playlist
         </button>
       </form>
-      {data ? <Playlist data={data} /> : ""}
+      {data ? <Playlist data={data}/> : ""}
     </div>
   );
 }

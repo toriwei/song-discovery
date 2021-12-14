@@ -16,7 +16,8 @@ export function SignIn() {
 export function SignOut() {
   return (
     <div>
-      Hello, {auth.currentUser.displayName} &nbsp;
+      <span className="helloUser">Hello, {auth.currentUser.displayName}</span>{" "}
+      &nbsp;
       <img src={auth.currentUser.photoURL} alt="user" width="20" />
       <button className="buttons" onClick={() => signOut(auth)}>
         Sign Out

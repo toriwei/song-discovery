@@ -16,10 +16,12 @@ import {
 } from "firebase/firestore";
 import Article from "../components/Article";
 
-export async function createArticle({ artist, movie, results }) {
-  const data = { artist, movie, results };
-  const docRef = await addDoc(collection(db, "articles"), data);
-  return { id: docRef.id, ...data };
+export async function createArticle({ artist, movie, data }) {
+  const payload = { artist, movie, date: Timestamp.now(), data };
+  console.log("WRITING TO DB", payload)
+  const docRef = await addDoc(collection(db, "articles"), payload);
+  console.log("WROTE IT")
+  return { id: docRef.id, ...payload };
 }
 
 export async function fetchArticles() {

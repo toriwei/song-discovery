@@ -5,7 +5,7 @@ import { auth } from "../firebaseConfig";
 export function SignIn() {
   return (
     <button
-      class="signinbutton"
+      className="signinbutton"
       onClick={() => signInWithPopup(auth, new GoogleAuthProvider())}
     >
       Sign In!

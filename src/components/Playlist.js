@@ -4,7 +4,7 @@ export default function Playlist({ data }) {
     <section>
       <div>
         {data.map((result) => (
-          <p key="{result.Name}">{result.Name}</p>
+          <p key={result.Name}>{result.Name}</p>
         ))}
       </div>
     </section>

@@ -26,8 +26,9 @@ export default function App() {
   }, [user]);
 
   // Update the "database" *then* update the internal React state.
-  async function addArticle({ artist, movie, results }) {
-    let article = await createArticle({ artist, movie, results });
+  async function addArticle({ artist, movie, data }) {
+    console.log("OOOOOOOOOOOO", artist, movie, data);
+    let article = await createArticle({ artist, movie, data });
     setArticle(article);
     setArticles([article, ...articles]);
     // setWriting(false);

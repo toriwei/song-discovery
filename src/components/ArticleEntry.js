@@ -26,26 +26,24 @@ export default function ArticleEntry({ addArticle }) {
       .then((r) => r.json())
       .then((r) => {
         setData(r.Similar.Results);
+        store(r.Similar.Results);
       })
       .catch((e) => setData(null));
   }
   /**, [addArticle]); */
 
-  function submit(e) {
-    setError(null);
-    e.preventDefault();
-    if (!artist.trim() || !movie.trim()) {
-      setError("Both input boxes must be filled");
-    } else {
-        addArticle({ artist, movie, data }).catch(() => {
+  function store(results) {
+        setError(null);
+        console.log("STORING", results)
+        addArticle({ artist, movie, data:results }).catch(() => {
         setError("playlist creation failed");
       });
-    }
+    
   }
 
   return (
     <div>
-      <form onSubmit={submit}>
+      {/* <form onSubmit={submit}> */}
         {error && <p className="error">{error}</p>}
         Artist
         <input
@@ -64,7 +62,7 @@ export default function ArticleEntry({ addArticle }) {
         <button className="buttons" type="submit" onClick={getData}>
           Create Playlist
         </button>
-      </form>
+      {/* </form> */}
       {data ? <Playlist data={data}/> : ""}
     </div>
   );

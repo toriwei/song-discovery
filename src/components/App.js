@@ -58,10 +58,12 @@ export default function App() {
       {!user ? (
         <Homepage />
       ) : (
-        <Nav articles={articles} setArticle={setArticle} />
+        <div style={{ width: "100%", display: "flex" }}>
+          <Nav articles={articles} setArticle={setArticle} />
+          <ArticleEntry addArticle={addArticle} />
+          <Article article={article} remover={removeArticle} />
+        </div>
       )}
-      <ArticleEntry addArticle={addArticle} />
-      <Article article={article} remover={removeArticle} />
 
       {/* {!user ? (
         ""

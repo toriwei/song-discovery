@@ -1,6 +1,9 @@
+import Article from "./Article";
+import ArticleEntry from "./ArticleEntry";
+
 export default function Nav({ articles, setArticle }) {
   return (
-    <nav>
+    <nav className="Art">
       {!articles
         ? "No articles"
         : articles.map((a) => (

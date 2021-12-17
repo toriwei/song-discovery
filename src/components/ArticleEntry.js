@@ -41,17 +41,17 @@ export default function ArticleEntry({ addArticle }) {
   }
 
   return (
-    <div>
+    <div className="Middle">
       {/* <form onSubmit={submit}> */}
       {error && <p className="error">{error}</p>}
-      Artist
+      Artist:
       <input
         id="artist_name"
         value={artist}
         onChange={(e) => setArtist(e.target.value)}
       />
       {/* part we deleted: onChange={(e) => setSong(e.target.value)} */}
-      Movie
+      Movie:
       <input
         id="movie_name"
         value={movie}

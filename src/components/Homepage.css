@@ -3,10 +3,10 @@ h1 {
   font-size: 100px;
   text-align: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 10px;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 3px #020002;
-  border: solid 0.5px rgb(243, 52, 141);
+  border: solid 5px rgb(243, 52, 141);
   background-image: url("https://wepik.com/storage/previews/2773036/colorful-psychedelic-groovy-zoom-background-r-688371383page1.jpg");
 }
 
@@ -31,7 +31,7 @@ h1 {
   border-radius: 47%;
   font-size: 20px;
   padding: 14px 40px;
-  margin-top: 20px;
+  margin-top: 100px;
   width: 200px;
   border: solid 0.5px rgb(245, 184, 212);
   box-shadow: -4px 4px rgb(132, 57, 167), -3px 3px rgb(209, 66, 133),
@@ -47,4 +47,17 @@ h1 {
 
 .titleImage {
   height: 300px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 100px;
+  background-color: rgb(253, 8, 151);
+  color: white;
+  border-bottom: 100px solid rgb(63, 165, 196);
+  border-top: 100px solid rgb(255, 174, 0);
+  font-style: italic;
+  font-family: rockwell;
+  font-size: 20px;
 }

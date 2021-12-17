@@ -2,7 +2,7 @@ export default function Article({ article, remover }) {
   return (
     <article>
       {!article ? (
-        <p>No playlist selected</p>
+        <p>Select a playlist to display</p>
       ) : (
         <section>
           <h2>

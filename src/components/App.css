@@ -1,11 +1,12 @@
 .App {
-  display: grid;
   grid-template-rows: min-content auto;
-  grid-template-columns: 250px auto;
+  grid-template-columns: 35% auto;
   height: 100vh;
   overflow: scroll;
-  background-color: white;
-  font-family: "Shippori Antique", sans-serif;
+  background-color: rgb(250, 229, 248);
+  font-family: marker felt;
+  color: white;
+  text-shadow: 1px 1px 10px black;
 }
 
 header {
@@ -13,20 +14,22 @@ header {
   justify-content: space-between;
   background-image: url("https://wepik.com/storage/previews/2773036/colorful-psychedelic-groovy-zoom-background-r-688371383page1.jpg");
   color: white;
-  text-shadow: 1px 1px 3px #020002;
+  text-shadow: 1px 1px 10px #020002;
   font-family: marker felt;
   font-size: 80px;
-  grid-column: 1 / span 3;
-  padding: 60px 10px;
-  padding-left: 35px;
+  grid-column: 1 / span 2;
+  padding: 40px 70px;
   margin: 10px;
+  width: 100%;
+  border: 5px solid rgb(253, 8, 151);
 }
 
 .helloUser {
   font-size: 25px;
+  margin-bottom: 40px;
 }
 form {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -34,19 +37,20 @@ form {
 
 form input,
 form textarea {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 70px;
   width: 300px;
 }
 
 nav,
 article {
-  height: 100%;
   padding: 10px;
 }
 
 nav {
   background-color: rgb(132, 57, 167);
   overflow: auto;
+  border: 5px solid rgb(255, 174, 0);
 }
 
 nav p:hover {
@@ -56,6 +60,10 @@ nav p:hover {
 
 article {
   background-color: rgb(255, 174, 0);
+  border: 5px solid rgb(94, 151, 168);
+  font-size: 20px;
+  margin-top: 30px;
+  margin-right: 30px;
 }
 
 article .date {
@@ -74,21 +82,37 @@ article .body {
 
 .buttons {
   display: inline-block;
-  padding: 0.25em 0.5em;
+  padding: 10px 10px;
   text-decoration: none;
-  color: rgb(233, 5, 138);
-  text-shadow: 0 0 3px #eb64d9;
-  background-color: white;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  background-color: rgb(132, 57, 167);
   box-shadow: -3px 3px rgb(29, 208, 221), -2px 2px teal, -1px 1px teal;
   border-radius: 4px;
   font-weight: bold;
   border: solid 0.5px rgb(29, 208, 221);
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .buttons:hover {
   -webkit-transform: rotate(5deg);
   -ms-transform: rotate(5deg);
   transform: rotate(5deg);
-  background-color: rgb(248, 143, 192);
+  background-color: rgb(227, 143, 248);
   border: none;
+}
+
+.Middle {
+  margin: 30px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.Art {
+  height: 100%;
+  margin-left: 10px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-right: 30px;
 }

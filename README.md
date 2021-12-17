@@ -1,6 +1,7 @@
 # Jukebox
 
 A music discovery app by Anna Garren, Elena Orozco, and Tori Wei
+
 https://song-discovery.web.app/
 
 ## About

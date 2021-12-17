@@ -7,7 +7,7 @@ export default function Homepage() {
       {/* <nav className="homepageNav">Sign in to view articles!</nav> */}
 
       <div className="title">
-        <h1>Song Discovery</h1>
+        <h1>Jukebox</h1>
         <SignIn />
       </div>
       <footer>

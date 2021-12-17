@@ -5,7 +5,7 @@ export default function Nav({ articles, setArticle }) {
         ? "No articles"
         : articles.map((a) => (
             <p key={a.id} onClick={() => setArticle(a)}>
-              {a.title}
+              {a.artist} and {a.movie}
             </p>
           ))}
     </nav>

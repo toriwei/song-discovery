@@ -1,7 +1,7 @@
 import { auth } from "../firebaseConfig";
 import { useState, useEffect } from "react";
 import { render } from "@testing-library/react";
-import Playlist from "./Playlist"; 
+import Playlist from "./Playlist";
 
 export default function ArticleEntry({ addArticle }) {
   const [artist, setArtist] = useState("");
@@ -33,37 +33,36 @@ export default function ArticleEntry({ addArticle }) {
   /**, [addArticle]); */
 
   function store(results) {
-        setError(null);
-        console.log("STORING", results)
-        addArticle({ artist, movie, data:results }).catch(() => {
-        setError("playlist creation failed");
-      });
-    
+    setError(null);
+    console.log("STORING", results);
+    addArticle({ artist, movie, data: results }).catch(() => {
+      setError("playlist creation failed");
+    });
   }
 
   return (
     <div>
       {/* <form onSubmit={submit}> */}
-        {error && <p className="error">{error}</p>}
-        Artist
-        <input
-          id="artist_name"
-          value={artist}
-          onChange={(e) => setArtist(e.target.value)}
-        />
-        {/* part we deleted: onChange={(e) => setSong(e.target.value)} */}
-        Movie
-        <input
-          id="movie_name"
-          value={movie}
-          onChange={(e) => setMovie(e.target.value)}
-        />
-        {/**onChange={(e) => setMovie(e.target.value)} */}
-        <button className="buttons" type="submit" onClick={getData}>
-          Create Playlist
-        </button>
+      {error && <p className="error">{error}</p>}
+      Artist
+      <input
+        id="artist_name"
+        value={artist}
+        onChange={(e) => setArtist(e.target.value)}
+      />
+      {/* part we deleted: onChange={(e) => setSong(e.target.value)} */}
+      Movie
+      <input
+        id="movie_name"
+        value={movie}
+        onChange={(e) => setMovie(e.target.value)}
+      />
+      {/**onChange={(e) => setMovie(e.target.value)} */}
+      <button className="buttons" type="submit" onClick={getData}>
+        Create Playlist
+      </button>
       {/* </form> */}
-      {data ? <Playlist data={data}/> : ""}
+      {/* {data ? <Playlist data={data}/> : ""} */}
     </div>
   );
 }
